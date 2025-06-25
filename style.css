@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif;
+}
+.wrapper{
+    text-align: center;
+    background-color: antiquewhite;
+    width: 100vw;
+    overflow-x: hidden;
+}
+.wrapper h2{
+    margin: 10px;
+    font-size: 30px;
+    
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+
+    margin: 0 auto; 
+    /* margin auto karne se centr me ajat */
+    gap: 15px;
+
+    flex-wrap: wrap;
+    /* 
+    1. Flex wrap karne se sari images side me ane wali problem solve hojayegi
+    2. agr img tag ki width 30% kaden to apne aap ek row 3 images ayegi
+       uske baad neeche wale row mw shift kr jayega
+    */
+    
+}
+.box{
+    width: 32.3%;
+    height: 300px;
+    border-radius: 20px;
+    position: relative;
+    text-align:justify;
+}
+.box p{
+    margin-top: 270px;
+    margin-left: 20px;
+    position: relative;
+    font-size: 17px;
+    color: rgba(255, 255, 255,0);
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: absolute;
+    filter: grayscale(100%);
+}
+
+
+.box:hover img{
+    filter: grayscale(0%);
+}
+.box:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px black;
+    color: rgba(255, 255, 255,1);
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+/* hover on .box and apply to <p> */
+.box:hover p{
+    color: rgba(255, 255, 255,1);
+    font-size: 20px;
+    transition: 0.2s ease;
+}
