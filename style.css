@@ -1,77 +1,99 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif;
-}
-.wrapper{
-    text-align: center;
-    background-color: antiquewhite;
-    width: 100vw;
-    overflow-x: hidden;
-}
-.wrapper h2{
-    margin: 10px;
-    font-size: 30px;
-    
-}
-.container{
-    display: flex;
-    justify-content: center;
-    width: 1000px;
-
-    margin: 0 auto; 
-    /* margin auto karne se centr me ajat */
-    gap: 15px;
-
-    flex-wrap: wrap;
-    /* 
-    1. Flex wrap karne se sari images side me ane wali problem solve hojayegi
-    2. agr img tag ki width 30% kaden to apne aap ek row 3 images ayegi
-       uske baad neeche wale row mw shift kr jayega
-    */
-    
-}
-.box{
-    width: 32.3%;
-    height: 300px;
-    border-radius: 20px;
-    position: relative;
-    text-align:justify;
-}
-.box p{
-    margin-top: 270px;
-    margin-left: 20px;
-    position: relative;
-    font-size: 17px;
-    color: rgba(255, 255, 255,0);
-}
-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    position: absolute;
-    filter: grayscale(100%);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-
-.box:hover img{
-    filter: grayscale(0%);
-}
-.box:hover{
-    transform: scale(1.02);
-    box-shadow: 0px 0px 10px black;
-    color: rgba(255, 255, 255,1);
-    font-size: 20px;
-    transition: 0.3s ease;
+.wrapper {
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-/* hover on .box and apply to <p> */
-.box:hover p{
-    color: rgba(255, 255, 255,1);
-    font-size: 20px;
-    transition: 0.2s ease;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container h2 {
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  margin: 20px 0px;
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* better spacing */
+  justify-content: center;
+
+}
+
+/* Default for mobile */
+figure {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Tablet: 2 per row */
+@media (min-width: 600px) {
+  figure {
+    width: 48%;
+  }
+}
+
+/* Desktop: 3 per row */
+@media (min-width: 900px) {
+  figure {
+    width: 32%;
+  }
+}
+
+figure:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease;
+  filter: drop-shadow(0px 0px 10px black);
+}
+
+figcaption {
+  position: absolute;
+  width: 100%;
+  top: 92%;
+  color: white;
+  font-size: 14px;
+  border-radius: 15px;
+  padding: 6px 12px;
+  opacity: 0;
+  z-index: 1;
+}
+
+figure:hover figcaption {
+  opacity: 1;
+  font-size: 16px;
+  transition: 0.3s ease;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0)
+  );
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  border-radius: 15px;
+  display: block;
+}
+
+img:hover {
+  filter: grayscale(0%);
 }
